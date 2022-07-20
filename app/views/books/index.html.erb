@@ -8,21 +8,9 @@
   <p>Opinion</p>
   <%= book.body %>
   <%= book.user.name %>
+  
 </div>
 
 <% end %>
 
-
-
-
-
-<h1>新規投稿</h1>
-<%= form_with model: @book, url: '/books', method: :post do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-
-  <h4>本文</h4>
-  <%= f.text_area :body %>
-
-  <%= f.submit '投稿' %>
-<% end %>
+<%= render 'create', book: @book %>
