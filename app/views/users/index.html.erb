@@ -4,7 +4,7 @@
  <% @users.each do |user| %>
 
  <h2>Image</h2>
- <%= image_tag 'no_image.jpg' %>
+ <%= image_tag user.get_profile_image(100,100) %>
 
  <h2>Name</h2>
  <%= user.name %>

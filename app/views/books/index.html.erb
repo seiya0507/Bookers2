@@ -1,14 +1,16 @@
+
+
 <h1>Books</h1>
 <% @books.each do |book| %>
 
 <div>
-  <%= image_tag 'no_image.jpg' %>
+  <%= image_tag book.user.get_profile_image(100,100) %>
   <p>Title</p>
-  <%=link_to book.title, book_path(book.id) %>
+  <%= link_to book.title, book_path(book.id) %>
   <p>Opinion</p>
   <%= book.body %>
-  <%= book.user.name %>
-  
+  <%= link_to book.user.name, user_path(book.user.id) %>
+
 </div>
 
 <% end %>
