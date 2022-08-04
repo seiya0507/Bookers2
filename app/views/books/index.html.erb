@@ -1,4 +1,7 @@
 <div class="container px-5 px-sm-0">
+ <div class="mx-auto">
+  <%= render "searchs/form", user: @user %>
+ </div>
   <% if @new_book.errors.any? %>
      <h3><%= @new_book.errors.count %>
        errors!
