@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get '/home/about' => 'homes#about', as: 'about'
 
-  resources :books do
 
+  resources :books do
    resource :favorites, only: [:create, :destroy]
    resources :book_comments, only: [:create, :destroy]
   end
@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
   end
 
-  get "search" => "searchs#search"
+  get '/search', to: 'searches#search'
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
