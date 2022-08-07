@@ -1,18 +1,9 @@
 <div class="container px-5 px-sm-0">
-  <% if @new_book.errors.any? %>
-     <h3><%= @new_book.errors.count %>
-       errors!
-     </h3>
-     <ul>
-       <% @new_book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-       <% end %>
-     </ul>
-  <% end %>
   <div class="row">
     <div class="col-md-3">
-      <%= render 'users/user', user: @user %>
-      <%= render 'create', book: @new_book %>
+      <%= render 'error', new_book: new_book %>
+      <%= render 'users/user', user: user %>
+      <%= render 'create', book: new_book %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>

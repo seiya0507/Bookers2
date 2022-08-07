@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
+      <%= render 'error', new_book: @new_book %>
       <%= render 'users/user', user: @book_user %>
       <%= render 'create', book: @new_book %>
     </div>

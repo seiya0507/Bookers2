@@ -1,0 +1,10 @@
+<% if new_book.errors.any? %>
+  <h3><%= new_book.errors.count %>
+   errors!
+  </h3>
+  <ul>
+  <% new_book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+<% end %>

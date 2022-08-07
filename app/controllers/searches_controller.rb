@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  
+
   before_action :authenticate_user!
 
 	def search
@@ -11,6 +11,8 @@ class SearchesController < ApplicationController
 		else
 			@records = Book.search_for(@content, @method)
 		end
+		#byebug
+		render 'search'
 	end
-	
+
 end
