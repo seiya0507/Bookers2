@@ -16,15 +16,30 @@
             </td>
             <td><%= @book.title %></td>
             <td><%= @book.body %></td>
-            <% if @book.user == current_user %>
+           <% if @book.user == current_user %>
             <td><%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-sm btn-danger" %></td>
-            <% end %>
+           <% end %>
             <td id="favorite_buttons_<%= @book.id %>">
-              <%= render 'favorites/favorite', book: @book %>
+              <%= render "favorites/favorite-btn", book: @book %>
             </td>
             <td class="comments-count">
               <%= render "book_comments/counter", book: @book %>
+            </td>
+            <td>
+              <div id="star-rate<%= @book.id%>">
+               <script>
+                $('#star-rate<%= @book.id %>').empty();
+                $('#star-rate<%= @book.id%>').raty({
+                 size      : 36,
+                 starOff   : '<%= asset_path('star-off.png') %>',
+                 starOn    : '<%= asset_path('star-on.png') %>',
+                 half      : false,
+                 readOnly: true,
+                 score: <%= @book.star %>,
+                });
+               </script>
+              </div>    
             </td>
           </tr>
         </tbody>
